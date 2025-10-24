@@ -43,5 +43,27 @@ print(HIE_countries)
 #There are 17 HIE countries in Amercias, 14 in Asia, 31 in Europe and 4 in Oceania.
 
 #Q9
-if data["Life expectancy, female"] > 80:
-    print()
+count=0
+for i in range(0,217):
+    if data.iloc[i]["Life expectancy, female"] > 80: #iloc finds value in the named column using its index (i)
+        print(data.iloc[i]["Country Name"])
+        count+=1
+print(count, "countries")
+
+#Part 4
+
+#Q1
+sns.relplot(
+    data=data,
+    x="Life expectancy, female",
+    y="GNI per Capita")
+
+sns.relplot(
+    data=data,
+    x="Life expectancy, male",
+    y="GNI per Capita")
+
+
+
+
+
