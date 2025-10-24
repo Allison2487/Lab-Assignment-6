@@ -53,17 +53,24 @@ print(count, "countries")
 #Part 4
 
 #Q1
-sns.relplot(
-    data=data,
-    x="Life expectancy, female",
-    y="GNI per Capita")
+sns.relplot(data=data, x="Life expectancy, female", y="GNI per Capita")
 
-sns.relplot(
-    data=data,
-    x="Life expectancy, male",
-    y="GNI per Capita")
+sns.relplot(data=data, x="Life expectancy, male", y="GNI per Capita")
 
+#Q2
+sns.relplot(data=data, x="Life expectancy, female", y="GNI per Capita", hue="Region")
 
+sns.relplot(data=data, x="Life expectancy, male", y="GNI per Capita", hue="Region")
 
+#Q3
+sns.relplot(data=data, x="Life expectancy, female", y="GNI per Capita", hue="Region", kind="line", errorbar="sd")
 
+sns.relplot(data=data, x="Life expectancy, male", y="GNI per Capita", hue="Region", kind="line", errorbar="sd")
 
+#Q4
+sns.lmplot(data=data, x="Life expectancy, male", y="GNI per Capita", hue="Region")
+
+#Q5 ???????
+sns.relplot(data=data, x="Life expectancy", y="GNI per Capita")
+
+#Q6
