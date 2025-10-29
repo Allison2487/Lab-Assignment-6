@@ -52,31 +52,51 @@ print(count, "countries")
 
 #Part 4
 
-#Q1
-sns.relplot(data=data, x="Life expectancy, female", y="GNI per Capita").set(title="GNI per capita according to female life expectancy")
-sns.relplot(data=data, x="Life expectancy, male", y="GNI per Capita").set(title="GNI per capita according to male life expectancy")
+#Question 1
+sns.relplot(data=data, x="Life expectancy, female", 
+            y="GNI per Capita").set(title="GNI per capita according to female life expectancy")
 
-#Q2
-sns.relplot(data=data, x="Life expectancy, female", y="GNI per Capita", hue="Region").set(title="GNI per capita according to female life expectancy in different regions")
-sns.relplot(data=data, x="Life expectancy, male", y="GNI per Capita", hue="Region").set(title="GNI per capita according to male life expectancy in different regions")   
+sns.relplot(data=data, x="Life expectancy, male", 
+            y="GNI per Capita").set(title="GNI per capita according to male life expectancy")
 
-#Q3
-sns.relplot(data=data, x="Life expectancy, female", y="GNI per Capita", hue="Region", kind="line", errorbar="sd").set(title="GNI per capita according to female life expectancy")
-sns.relplot(data=data, x="Life expectancy, male", y="GNI per Capita", hue="Region", kind="line", errorbar="sd").set(title="GNI per capita according to male life expectancy")
+#Question 2
+sns.relplot(data=data, x="Life expectancy, female", y="GNI per Capita", 
+            hue="Region").set(title="GNI per capita according to female life expectancy in different regions")
 
-#Q4
-sns.lmplot(data=data, x="Life expectancy, male", y="GNI per Capita", hue="Region")
+sns.relplot(data=data, x="Life expectancy, male", y="GNI per Capita", 
+            hue="Region").set(title="GNI per capita according to male life expectancy in different regions")   
 
-#Q5
+#Question 3
+sns.relplot(data=data, x="Life expectancy, female", y="GNI per Capita", hue="Region", kind="line", 
+            errorbar="sd").set(title="GNI per capita according to female life expectancy")
 
-#1 Life expectancy and Greenhouse gas emissions
-sns.relplot(data=data, x="Greenhouse gas emissions", y="Life expectancy, female", hue="Region", col="Region", col_wrap=3)
-sns.relplot(data=data, x="Greenhouse gas emissions", y="Life expectancy, male", hue="Region", col="Region", col_wrap=3)
-#2 Life Expectancy and Tertiary Education
-sns.relplot(data=data, x="Life expectancy, female", y="Tertiary education, female", hue="Region", col="Region", col_wrap=3)
-#3 Tertiary Education and Women in national parliament
-sns.relplot(data=data, x="Tertiary education, female", y="Women in national parliament", hue="Region", col="Region", col_wrap=3)
-#4
-#5
+sns.relplot(data=data, x="Life expectancy, male", y="GNI per Capita", hue="Region", kind="line", 
+            errorbar="sd").set(title="GNI per capita according to male life expectancy")
+
+#Question 4
+sns.lmplot(data=data, x="Life expectancy, female", y="GNI per Capita", 
+           hue="Region").set(title="GNI per capita according to female life expectancy")
+
+sns.lmplot(data=data, x="Life expectancy, male", y="GNI per Capita", 
+           hue="Region").set(title="GNI per capita according to male life expectancy")
+
+#Question 5 (5.1-5.5)
+
+#5.1 Life expectancy and Greenhouse gas emissions
+sns.relplot(data=data, x="Greenhouse gas emissions", y="Life expectancy, female", hue="Region", col="Region", 
+            col_wrap=3).set(title="Effect of greenhouse gases on female life expectancy around the world")
+
+sns.relplot(data=data, x="Greenhouse gas emissions", y="Life expectancy, male", hue="Region", col="Region", 
+            col_wrap=3).set(title="Effect of greenhouse gases on male life expectancy around the world")
+
+#5.2 Life Expectancy and Tertiary Education
+sns.relplot(data=data, x="Life expectancy, female", y="Tertiary education, female", hue="Region", col="Region", 
+            col_wrap=3).set(title="Correlation between a country's female life expectancy and female tertiary education")
+
+#5.3 Tertiary Education and Women in national parliament
+sns.relplot(data=data, x="Tertiary education, female", y="Women in national parliament", hue="Region", col="Region", 
+            col_wrap=3).set(title="Female teriary education and its influence to have women in national parliament")
+#5.4
+#5.5
 
 #Q6
