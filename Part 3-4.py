@@ -7,7 +7,7 @@ Created on Thu Oct 23 08:14:49 2025
 import pandas as pd
 import seaborn as sns
 
-data= pd.read_csv("data.csv")
+data = pd.read_csv("data.csv")
 
 #Part 3
 
@@ -94,13 +94,13 @@ sns.lmplot(data=data, x="Life expectancy, female", y="Tertiary education, female
 #5.3 Tertiary Education and Women in national parliament
 sns.relplot(data=data, x="Tertiary education, female", y="Women in national parliament", hue="Region", col="Region", 
             col_wrap=3).set(title="Female teriary education and its influence to have women in national parliament")
-#5.4
+#5.4 Popultion and Physicians
 sns.relplot(data=data, x="Population", y="Physicians", hue="Region", col="Region", 
             col_wrap=3).set(title="Amount of physicians per population")
 
-#5.5
+#5.5 Male tertiary education and internet use
 sns.relplot(data=data, x="Internet use", y="Tertiary education, male", hue="Region", col="Region", 
-            col_wrap=3).set(title="Male tertiary education bsed off of internet use")
+            col_wrap=3).set(title="Male tertiary educations based off of internet use")
 
 
 #Q6
@@ -113,13 +113,21 @@ sns.lmplot(data=data, x="Internet use", y="Emissions per Capita", hue="Region", 
 
 #B
 HE=data[data["Emissions per Capita"]>0.03]
-print(HE)
+
+for i in range(0,217):
+    if data.iloc[i]["Emissions per Capita"] >0.03:
+        print(data.iloc[i]["Country Name"])
 
 
 #C
 print(data[["Country Name","Internet use"]])
 
+#C
+sns.lmplot(data=data,  x="Internet use",  y="Emissions per Capita", hue="Region", col="Region", 
+           col_wrap=3).set(title="Variation by Region of Internet use vs Emissions per Capita")
 
 #D
-
-
+high_income = data[data["High Income Economy"] == 1]
+print(high_income)
+HI_HE = high_income[high_income["Emissions per Capita"] > 0.03]
+print(HI_HE)
