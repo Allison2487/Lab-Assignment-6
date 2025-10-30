@@ -104,4 +104,22 @@ sns.relplot(data=data, x="Internet use", y="Tertiary education, male", hue="Regi
 
 
 #Q6
+#a 
+data["Emissions per Capita"] = data["Greenhouse gas emissions"]/data["Population"]
+print(data["Emissions per Capita"])
+
+sns.lmplot(data=data, x="Internet use", y="Emissions per Capita", hue="Region", col="Region", 
+            col_wrap=3).set(title="gas emission, internet")
+
+#B
+HE=data[data["Emissions per Capita"]>0.03]
+print(HE)
+
+
+#C
+print(data[["Country Name","Internet use"]])
+
+
+#D
+
 
