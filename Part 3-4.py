@@ -86,17 +86,22 @@ sns.lmplot(data=data, x="Life expectancy, male", y="GNI per Capita",
 sns.relplot(data=data, x="Greenhouse gas emissions", y="Life expectancy, female", hue="Region", col="Region", 
             col_wrap=3).set(title="Effect of greenhouse gases on female life expectancy around the world")
 
-sns.relplot(data=data, x="Greenhouse gas emissions", y="Life expectancy, male", hue="Region", col="Region", 
-            col_wrap=3).set(title="Effect of greenhouse gases on male life expectancy around the world")
 
 #5.2 Life Expectancy and Tertiary Education
-sns.relplot(data=data, x="Life expectancy, female", y="Tertiary education, female", hue="Region", col="Region", 
+sns.lmplot(data=data, x="Life expectancy, female", y="Tertiary education, female", hue="Region", col="Region", 
             col_wrap=3).set(title="Correlation between a country's female life expectancy and female tertiary education")
 
 #5.3 Tertiary Education and Women in national parliament
 sns.relplot(data=data, x="Tertiary education, female", y="Women in national parliament", hue="Region", col="Region", 
             col_wrap=3).set(title="Female teriary education and its influence to have women in national parliament")
 #5.4
+sns.relplot(data=data, x="Population", y="Physicians", hue="Region", col="Region", 
+            col_wrap=3).set(title="Amount of physicians per population")
+
 #5.5
+sns.relplot(data=data, x="Internet use", y="Tertiary education, male", hue="Region", col="Region", 
+            col_wrap=3).set(title="Male tertiary education bsed off of internet use")
+
 
 #Q6
+
