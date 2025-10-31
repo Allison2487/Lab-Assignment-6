@@ -104,6 +104,7 @@ sns.relplot(data=data, x="Internet use", y="Tertiary education, male", hue="Regi
 
 
 #Q6
+
 #a 
 data["Emissions per Capita"] = data["Greenhouse gas emissions"]/data["Population"]
 print(data["Emissions per Capita"])
