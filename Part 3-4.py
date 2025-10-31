@@ -84,23 +84,23 @@ sns.lmplot(data=data, x="Life expectancy, male", y="GNI per Capita",
 
 #5.1 Life expectancy and Greenhouse gas emissions
 sns.relplot(data=data, x="Greenhouse gas emissions", y="Life expectancy, female", hue="Region", col="Region", 
-            col_wrap=3).set(title="Effect of greenhouse gases on female life expectancy around the world")
+            col_wrap=3)
 
 
 #5.2 Life Expectancy and Tertiary Education
 sns.lmplot(data=data, x="Life expectancy, female", y="Tertiary education, female", hue="Region", col="Region", 
-            col_wrap=3).set(title="Correlation between a country's female life expectancy and female tertiary education")
+            col_wrap=3)
 
 #5.3 Tertiary Education and Women in national parliament
 sns.relplot(data=data, x="Tertiary education, female", y="Women in national parliament", hue="Region", col="Region", 
-            col_wrap=3).set(title="Female teriary education and its influence to have women in national parliament")
+            col_wrap=3)
 #5.4 Popultion and Physicians
 sns.relplot(data=data, x="Population", y="Physicians", hue="Region", col="Region", 
-            col_wrap=3).set(title="Amount of physicians per population")
+            col_wrap=3)
 
 #5.5 Male tertiary education and internet use
 sns.relplot(data=data, x="Internet use", y="Tertiary education, male", hue="Region", col="Region", 
-            col_wrap=3).set(title="Male tertiary educations based off of internet use")
+            col_wrap=3).set(title="Male Education and Internet Use by Region")
 
 
 #Q6
@@ -109,10 +109,10 @@ data["Emissions per Capita"] = data["Greenhouse gas emissions"]/data["Population
 print(data["Emissions per Capita"])
 
 sns.lmplot(data=data, x="Internet use", y="Emissions per Capita", hue="Region", col="Region", 
-            col_wrap=3).set(title="gas emission, internet")
+            col_wrap=3)
 
 #B
-HE=data[data["Emissions per Capita"]>0.03]
+High_emissions=data[data["Emissions per Capita"]>0.03]
 
 for i in range(0,217):
     if data.iloc[i]["Emissions per Capita"] >0.03:
@@ -120,14 +120,11 @@ for i in range(0,217):
 
 
 #C
-print(data[["Country Name","Internet use"]])
-
-#C
 sns.lmplot(data=data,  x="Internet use",  y="Emissions per Capita", hue="Region", col="Region", 
-           col_wrap=3).set(title="Variation by Region of Internet use vs Emissions per Capita")
+           col_wrap=3)
 
 #D
 high_income = data[data["High Income Economy"] == 1]
-print(high_income)
-HI_HE = high_income[high_income["Emissions per Capita"] > 0.03]
+HI_HE = high_income[high_income["Emissions per Capita"]> 0.03]
 print(HI_HE)
+
