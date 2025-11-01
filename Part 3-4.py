@@ -83,46 +83,50 @@ sns.lmplot(data=data, x="Life expectancy, male", y="GNI per Capita",
 #Question 5 (5.1-5.5)
 
 #5.1 Life expectancy and Greenhouse gas emissions
-sns.relplot(data=data, x="Greenhouse gas emissions", y="Life expectancy, female", hue="Region", col="Region", 
+a=sns.relplot(data=data, x="Greenhouse gas emissions", y="Life expectancy, female", hue="Region", col="Region", 
             col_wrap=3)
-
+a.fig.suptitle("Effects of greenhouse gases on female life expectancy", y=1.05)
 
 #5.2 Life Expectancy and Tertiary Education
-sns.lmplot(data=data, x="Life expectancy, female", y="Tertiary education, female", hue="Region", col="Region", 
+b=sns.lmplot(data=data, x="Life expectancy, female", y="Tertiary education, female", hue="Region", col="Region", 
             col_wrap=3)
+b.fig.suptitle("Life expectancy and the effet it has on women in higher education", y=1.05)
 
 #5.3 Tertiary Education and Women in national parliament
-sns.relplot(data=data, x="Tertiary education, female", y="Women in national parliament", hue="Region", col="Region", 
+c=sns.relplot(data=data, x="Tertiary education, female", y="Women in national parliament", hue="Region", col="Region", 
             col_wrap=3)
-#5.4 Popultion and Physicians
-sns.relplot(data=data, x="Population", y="Physicians", hue="Region", col="Region", 
+c.fig.suptitle("Women in national parliament as a result of higher education", y=1.05)
+
+#5.4 Population and Physicians
+d=sns.relplot(data=data, x="Population", y="Physicians", hue="Region", col="Region", 
             col_wrap=3)
+d.fig.suptitle("Population and the amount of physicians in that country ", y=1.05)
 
 #5.5 Male tertiary education and internet use
-sns.relplot(data=data, x="Internet use", y="Tertiary education, male", hue="Region", col="Region", 
+e=sns.relplot(data=data, x="Internet use", y="Tertiary education, male", hue="Region", col="Region", 
             col_wrap=3).set(title="Male Education and Internet Use by Region")
+e.fig.suptitle("Correlation between men with higher education and internet use", y=1.05)
 
+#Question 6
 
-#Q6
-
-#a 
+#A
 data["Emissions per Capita"] = data["Greenhouse gas emissions"]/data["Population"]
 print(data["Emissions per Capita"])
 
-sns.lmplot(data=data, x="Internet use", y="Emissions per Capita", hue="Region", col="Region", 
-            col_wrap=3)
+sns.lmplot(data=data, x="Internet use", y="Emissions per Capita").set(title="Effects of internet use on ghg emissions per capita")
 
 #B
 High_emissions=data[data["Emissions per Capita"]>0.03]
-
-for i in range(0,217):
-    if data.iloc[i]["Emissions per Capita"] >0.03:
-        print(data.iloc[i]["Country Name"])
-
+for country in High_emissions["Country Name"]:
+    print(country)
+print(High_emissions["Region"])
 
 #C
-sns.lmplot(data=data,  x="Internet use",  y="Emissions per Capita", hue="Region", col="Region", 
+for HE_Internet_use in High_emissions["Internet use"]:
+    print(HE_Internet_use)
+f=sns.lmplot(data=data,  x="Internet use",  y="Emissions per Capita", hue="Region", col="Region", 
            col_wrap=3)
+f.fig.suptitle("Effects of internet use on ghg emissions per capita", y=1.05)
 
 #D
 high_income = data[data["High Income Economy"] == 1]
